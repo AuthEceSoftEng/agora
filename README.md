@@ -4,7 +4,7 @@ This is the main repository of AGORA, a search engine for source code. It has li
 
 AGORA is a Code Search Engine that offers advanced features in order to help developers find the source code that they need. An online version of the service is available at:
 
-<center><a target="_blank" href="http://agora.ee.auth.gr">http://agora.ee.auth.gr</a></center>
+<a align="center" target="_blank" href="http://agora.ee.auth.gr">http://agora.ee.auth.gr</a>  
 
 AGORA is currently in version 1.0 and has been sent to the SoftwareX journal. Upon review, the final version for the journal will be noted by an appropriate tag in all three AGORA repositories.
 
@@ -19,4 +19,5 @@ AGORA comprises three modules residing in three different repositories:
 
 AGORA Documentation
 -------------------
-The online documentation of AGORA is available at the website of this repository.
+The online documentation of AGORA is available at the website of this repository, which is available at
+<a target="_blank" href="https://authecesofteng.github.io/agora/">https://authecesofteng.github.io/agora/</a>.
