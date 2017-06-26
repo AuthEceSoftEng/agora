@@ -31,6 +31,9 @@ AGORA has been developed by Themistoklis Diamantopoulos under the supervision of
 
 ### AGORA Documentation
 
+The main repository of AGORA that keeps the links to all repositories and holds the versions of the service is
+available at <a target="_blank" href="https://github.com/AuthEceSoftEng/agora">https://github.com/AuthEceSoftEng/agora</a>.
+
 AGORA comprises three modules residing in three different repositories:
 <ul>
 <li>an AST Parser for Java source code, available at <a target="_blank" href="https://github.com/AuthEceSoftEng/agora-ast-parser">https://github.com/AuthEceSoftEng/agora-ast-parser</a></li>
