@@ -62,7 +62,7 @@ git clone https://github.com/AuthEceSoftEng/agora-web-application.git
 
 #### Configure elasticsearch
 
-Step 1: set elasticsearch.yml configuration file
+Step 1: use provided elasticsearch.yml configuration file (available <a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client/blob/master/configuration/elasticsearch.yml">here</a>)
 
 ```
 sudo cp agora-elasticsearch-client/configuration/elasticsearch.yml elasticsearch-5.2.0/config/elasticsearch.yml
@@ -83,7 +83,7 @@ Step 3: add the command `su USERNAME -c "/home/USERNAME/startElastic.sh"` in fil
 
 Step 1: add `Listen 8080` in file `/etc/apache2/ports.conf`
 
-Step 2: use provided agora.conf configuration file
+Step 2: use provided agora.conf configuration file (available <a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client/blob/master/configuration/agora.conf">here</a>)
 
 ```
 sudo mv /etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000.default.conf.bak
