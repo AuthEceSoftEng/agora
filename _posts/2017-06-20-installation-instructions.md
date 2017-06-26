@@ -72,7 +72,7 @@ Step 2: create scripts to start/stop the service
 
 ```
 echo "./elasticsearch-5.2.0/bin/elasticsearch -d -p pid" > startElastic.sh
-echo "kill `cat pid`" > stopElastic.sh
+echo "kill \`cat pid\`" > stopElastic.sh
 ```
 
 Step 3: add the command `su USERNAME -c "/home/USERNAME/startElastic.sh"` in file `/etc/rc.local` (change USERNAME to your own)
