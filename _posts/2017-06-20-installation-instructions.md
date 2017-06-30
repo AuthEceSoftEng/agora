@@ -151,6 +151,17 @@ cd /var/www/html/
 sudo bower install --allow-root
 ```
 
+If you want to log all the queries, issue the following request on the service:
+
+```
+curl -XPUT 'http://localhost:9200/_all/_settings?preserve_existing=true' -d '{
+   "index.search.slowlog.threshold.query.debug" : "0s",
+   "index.search.slowlog.threshold.query.info" : "0s",
+   "index.search.slowlog.threshold.query.trace" : "0s",
+   "index.search.slowlog.threshold.query.warn" : "0s"
+}'
+```
+
 Go to the localhost in the browser to check the website
 
 
