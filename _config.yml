@@ -1,8 +1,6 @@
 # Site title and subtitle. This is used in _includes/header.html
 title: 'AGORA'
 subtitle: 'A Search Engine for Source Code'
-baseurl: "/agora/"
-url: "https://authecesofteng.github.io"
 
 # if you wish to integrate disqus on pages set your shortname here
 disqus_shortname: ''
@@ -30,7 +28,7 @@ sections: [
 
 # Keep as an empty string if served up at the root. If served up at a specific
 # path (e.g. on GitHub pages) leave off the trailing slash, e.g. /my-project
-baseurl: ''
+baseurl: 'https://authecesofteng.github.io/agora'
 
 # Dates are not included in permalinks
 permalink: none
