@@ -9,7 +9,7 @@ title: "Home"
 
 ### Get Started
 
-This is the documentation page of AGORA, a Search Engine for Source Code.
+This is the documentation page of AGORA, a Search Engine for Source Code Reuse.
 In this website you may find all resources and manuals used to build, develop and run AGORA.
 An online version of the service is available at:
 
