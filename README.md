@@ -1,6 +1,6 @@
-AGORA: A Search Engine for Source Code
-======================================
-This is the main repository of AGORA, a search engine for source code. It has links to the repositories three modules of AGORA, and contains the documentation and installation instructions of AGORA in the form of a website (created using the [jekyll-docs-template](http://bruth.github.io/jekyll-docs-template)).
+AGORA: A Search Engine for Source Code Reuse
+============================================
+This is the main repository of AGORA, a search engine for source code reuse. It has links to the repositories three modules of AGORA, and contains the documentation and installation instructions of AGORA in the form of a website (created using the [jekyll-docs-template](http://bruth.github.io/jekyll-docs-template)).
 
 AGORA is a Code Search Engine that offers advanced features in order to help developers find the source code that they need. An online version of the service is available at:
 
