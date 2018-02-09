@@ -31,7 +31,7 @@ Install bower using the following commands:
 sudo apt-get install nodejs
 sudo apt-get install npm
 sudo npm install bower -g
-sudo ln -s /usr/bin/nodejs /usr/bin/node`
+sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 
 Install apache web server
@@ -62,7 +62,7 @@ git clone https://github.com/AuthEceSoftEng/agora-web-application.git
 
 #### Configure elasticsearch
 
-Step 1: use provided elasticsearch.yml configuration file (available <a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client/blob/master/configuration/elasticsearch.yml">here</a>)
+Step 1: use provided elasticsearch.yml configuration file (available also <a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client/blob/master/configuration/elasticsearch.yml">here</a>)
 
 ```
 sudo cp agora-elasticsearch-client/configuration/elasticsearch.yml elasticsearch-5.2.0/config/elasticsearch.yml
@@ -79,13 +79,15 @@ chmod 700 stopElastic.sh
 
 Step 3: add the command `su USERNAME -c "/home/USERNAME/startElastic.sh"` in file `/etc/rc.local` (change USERNAME to your own)
 
-<br/>
+Step 4: start the service using the command `./startElastic.sh`
 
 #### Configure apache
 
 Step 1: add `Listen 8080` in file `/etc/apache2/ports.conf`
 
-Step 2: use provided agora.conf configuration file (available <a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client/blob/master/configuration/agora.conf">here</a>)
+Step 2: edit the provided agora-elasticsearch-client/configuration/agora.conf configuration file (available also <a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client/blob/master/configuration/agora.conf">here</a>) and set the IP the server and the administrator email twice, one time for each virtual host (in ports 80 and 8080)
+
+Step 3: use the agora.conf configuration file
 
 ```
 sudo mv /etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000.default.conf.bak
@@ -103,8 +105,7 @@ Step 4: set a password for the admin account
 
 ```
 sudo mkdir -p /usr/local/apache/passwd/
-sudo cd /usr/local/apache/passwd/
-sudo htpasswd passwords admin
+sudo htpasswd -c /usr/local/apache/passwd/passwords admin
 ```
 
 Step 5: restart the service
@@ -126,10 +127,10 @@ Install all requirements of the agora-elasticsearch-client
 
 ```
 cd ../agora-elasticsearch-client
-pip3 install -r requirements.txt
+sudo pip3 install -r requirements.txt
 ```
 
-Create a file agora.properties and fill it (according to the instructions provided <a target="_blank" href="/ref/agora-elasticsearch-client">here</a>) with the appropriate paths, usernames and password. The username and the password of the AGORA admin account are the ones you set at the Step 4 of configuring apache.
+Create a file agora.properties using the command `cp sample-agora.properties agora.properties` and fill it (according to the instructions provided <a target="_blank" href="/agora/ref/agora-elasticsearch-client">here</a>) with the appropriate paths, usernames and password. The username and the password of the AGORA admin account are the ones that were set at the Step 4 of configuring apache. The AST parser path should be `/home/USERNAME/agora-ast-parser/target/agora-ast-parser-0.1.jar`, while the source code directory and the backup directory are the ones that were set at the prerequisites (`/home/USERNAME/elasticsearch-5.2.0/code` and `/home/USERNAME/elasticsearch-5.2.0/backup`), where USERNAME has to be changed to your own.
 
 Create and populate the index
 

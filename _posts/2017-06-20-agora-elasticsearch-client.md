@@ -11,7 +11,7 @@ and updating projects, and performing flushand backup operations on the index. I
 Python and all dependencies can be installed issuing the command:
 
 ```
-pip install -r requirements.txt
+sudo pip3 install -r requirements.txt
 ```
 
 The code is available at <a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client">https://github.com/AuthEceSoftEng/agora-elasticsearch-client</a>
@@ -43,3 +43,5 @@ port = 9200
 sourcecodedir = (location where the cloned code will be stored)
 backupdir = (location where the backup of AGORA will be stored)
 ```
+
+The username and the password of the AGORA admin account are the ones that were set when configuring apache. The AST parser path should be `/home/USERNAME/agora-ast-parser/target/agora-ast-parser-0.1.jar`, while the source code directory and the backup directory are the ones that were set at the prerequisites (`/home/USERNAME/elasticsearch-5.2.0/code` and `/home/USERNAME/elasticsearch-5.2.0/backup`), where USERNAME has to be changed to your own.
