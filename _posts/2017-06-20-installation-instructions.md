@@ -130,13 +130,12 @@ cd ../agora-elasticsearch-client
 sudo pip3 install -r requirements.txt
 ```
 
-Create a file agora.properties using the command `cp sample-agora.properties agora.properties` and fill it (according to the instructions provided <a target="_blank" href="/agora/ref/agora-elasticsearch-client">here</a>) with the appropriate paths, usernames and password. The username and the password of the AGORA admin account are the ones that were set at the Step 4 of configuring apache. The AST parser path should be `/home/USERNAME/agora-ast-parser/target/agora-ast-parser-0.1.jar`, while the source code directory and the backup directory are the ones that were set at the prerequisites (`/home/USERNAME/elasticsearch-5.2.0/code` and `/home/USERNAME/elasticsearch-5.2.0/backup`), where USERNAME has to be changed to your own.
+Create a file agora.properties using the command `cp sample-agora.properties agora.properties` and fill it (according to the instructions provided <a target="_blank" href="/agora/ref/agora-elasticsearch-client.html">here</a>) with the appropriate paths, usernames and password. The username and the password of the AGORA admin account are the ones that were set at the Step 4 of configuring apache. The AST parser path should be `/home/USERNAME/agora-ast-parser/target/agora-ast-parser-0.1.jar`, while the source code directory and the backup directory are the ones that were set at the prerequisites (`/home/USERNAME/elasticsearch-5.2.0/code` and `/home/USERNAME/elasticsearch-5.2.0/backup`), where USERNAME has to be changed to your own.
 
-Create and populate the index
+Create the index
 
 ```
 sudo python3 main.py create_index
-sudo python3 main.py add_projects ./projectlists/moststars.txt
 ```
 
 Copy the contents of agora-web-application in apache web directory
@@ -165,7 +164,6 @@ curl -XPUT 'http://localhost:9200/_all/_settings?preserve_existing=true' -d '{
 }'
 ```
 
-Go to the localhost in the browser to check the website
+Go to the localhost in the browser to check the website  
 
-
-
+Check <a href="/agora/doc/usage.html">Usage</a> for populating the index and using AGORA
