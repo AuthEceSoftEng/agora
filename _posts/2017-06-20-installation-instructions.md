@@ -101,7 +101,7 @@ sudo a2enmod proxy
 sudo a2enmod proxy_http
 ```
 
-Step 4: set a password for the admin account (if the `htpasswd` command is not found, you may have to install the apache2-utils using the command `sudo apt-get install apache2-utils` - also the `-c` flag stands for create, so if there is already a password you have to call the command without the flag in order to change it)
+Step 4: set a password for the admin account (if the htpasswd command is not found, you may have to install the apache2-utils using the command `sudo apt-get install apache2-utils` - also the flag c stands for create, so if there is already a password you have to call the command without the flag in order to change it)
 
 ```
 sudo mkdir -p /usr/local/apache/passwd/
