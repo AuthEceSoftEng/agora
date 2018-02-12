@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "AGORA Elasticsearch client"
+title: "AGORA Elasticsearch Client"
 category: ref
 date: 2017-06-20 15:24:20
 order: 1

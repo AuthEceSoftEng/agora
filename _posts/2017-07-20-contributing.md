@@ -13,5 +13,6 @@ relevant AGORA repository. If the issue does not apply to a specific repository
 
 If you wish to contribute to AGORA (either for bug fixes or new features), you
 may fork any repository, create a branch,  implement any changes, and submit a
-pull request.
+pull request. Please make sure to also check the instructions in the 
+<a href="/agora/dev/quality.html">Quality</a> page of AGORA.
 
