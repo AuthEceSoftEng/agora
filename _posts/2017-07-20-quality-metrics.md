@@ -73,49 +73,49 @@ Measuring the indexing time requires instrumenting the
 <a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client/blob/master/dbmanager.py#L90">add_project method of dbmanager</a> and the <a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client/blob/master/dbmanager.py#L90">add_projects method of dbmanager</a>.
 The new add_project method should be the following:
 ```python
-	def add_project(self, project_address):
-		"""
-		Adds a project to the index or updates it if it already exists.
-		
-		:param project_address: the URL of the project to be added.
-		"""
-		project_id = '/'.join(project_address.split('/')[-2:])
-		sys.stdout.write('\nDownloading project info for project ' + project_id)
-		project, sourcefiles = self.gpdownloader.download_project(project_id)
-		sys.stdout.write('. Done!\n')
-		project_path = self.sourcecodedir + '/' + project['user'] + '/' + project['name']
-		self.gitdownloader.git_pull_or_clone(project_id, project['git_url'], project_path, project['default_branch'])
-		sys.stdout.write('Adding project to database!\n')
-		sys.stdout.write('Compiling project')
-		full_compiled_source = self.javaparser.parse_project(project_path)
-		sys.stdout.write('. Done!\n')
-		self.esclient.create_project(project)
-		sys.stdout.write('Creating database entries')
-		import time
-		create_times = []
-		for file_path, afile in self.get_enumerated_files_with_paths(project_path, sourcefiles):
-			self.set_file_code_and_contents(file_path, afile, full_compiled_source)
-			time_start = time.time()
-			self.esclient.create_file(afile)
-			create_times.append(time.time() - time_start)
-		sys.stdout.write(' Done!\n')
-		avg_create_time = sum(create_times) / len(create_times)
-		sys.stdout.write("Average indexing time per file for project %s: %.2f milliseconds\n" %(project_id, avg_create_time))
-		return avg_create_time
+def add_project(self, project_address):
+	"""
+	Adds a project to the index or updates it if it already exists.
+	
+	:param project_address: the URL of the project to be added.
+	"""
+	project_id = '/'.join(project_address.split('/')[-2:])
+	sys.stdout.write('\nDownloading project info for project ' + project_id)
+	project, sourcefiles = self.gpdownloader.download_project(project_id)
+	sys.stdout.write('. Done!\n')
+	project_path = self.sourcecodedir + '/' + project['user'] + '/' + project['name']
+	self.gitdownloader.git_pull_or_clone(project_id, project['git_url'], project_path, project['default_branch'])
+	sys.stdout.write('Adding project to database!\n')
+	sys.stdout.write('Compiling project')
+	full_compiled_source = self.javaparser.parse_project(project_path)
+	sys.stdout.write('. Done!\n')
+	self.esclient.create_project(project)
+	sys.stdout.write('Creating database entries')
+	import time
+	create_times = []
+	for file_path, afile in self.get_enumerated_files_with_paths(project_path, sourcefiles):
+		self.set_file_code_and_contents(file_path, afile, full_compiled_source)
+		time_start = time.time()
+		self.esclient.create_file(afile)
+		create_times.append(time.time() - time_start)
+	sys.stdout.write(' Done!\n')
+	avg_create_time = sum(create_times) / len(create_times)
+	sys.stdout.write("Average indexing time per file for project %s: %.2f milliseconds\n" %(project_id, avg_create_time))
+	return avg_create_time
 ```
 and the new add_projects method should be the following:
 ```python
-	def add_projects(self, project_addresses):
-		"""
-		Adds or updates a list of projects in the index.
-		
-		:param project_addresses: a list of project addresses to be added.
-		"""
-		total_time = 0
-		for project_address in project_addresses:
-			avg_create_time = self.add_project(project_address)
-			total_time += avg_create_time
-		print("Average indexing time per file for all projects: %.2f milliseconds" %(total_time / len(project_addresses)))
+def add_projects(self, project_addresses):
+	"""
+	Adds or updates a list of projects in the index.
+	
+	:param project_addresses: a list of project addresses to be added.
+	"""
+	total_time = 0
+	for project_address in project_addresses:
+		avg_create_time = self.add_project(project_address)
+		total_time += avg_create_time
+	print("Average indexing time per file for all projects: %.2f milliseconds" %(total_time / len(project_addresses)))
 ```
 Note that the indexing time is measured for creating a project.
 So, the projects should not be already created.
