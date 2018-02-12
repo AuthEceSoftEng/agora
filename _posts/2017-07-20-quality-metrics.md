@@ -26,7 +26,7 @@ To test the response time of the service, one can measure how much does it take 
 As the main point of assessment is the performance of the index, the measurement is performed using
 API queries (the ones available at <a target="_blank" href="http://agora.ee.auth.gr/api/">http://agora.ee.auth.gr/api/</a>).
 One can perform the measurement by running the following python script:
-```
+```python
 import time
 import requests
 
@@ -72,7 +72,7 @@ Average time per query for all queries: 0.19 milliseconds
 Measuring the indexing time requires instrumenting the
 <a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client/blob/master/dbmanager.py#L90">add_project method of dbmanager</a> and the <a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client/blob/master/dbmanager.py#L90">add_projects method of dbmanager</a>.
 The new add_project method should be the following:
-```
+```python
 	def add_project(self, project_address):
 		"""
 		Adds a project to the index or updates it if it already exists.
@@ -104,7 +104,7 @@ The new add_project method should be the following:
 		return avg_create_time
 ```
 and the new add_projects method should be the following:
-```
+```python
 	def add_projects(self, project_addresses):
 		"""
 		Adds or updates a list of projects in the index.
