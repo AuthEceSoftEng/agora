@@ -1,9 +1,9 @@
 ---
 layout: page
-title: "Code Quality"
-category: dev
+title: "Quality Metrics"
+category: ext
 date: 2017-06-20 15:24:20
-order: 2
+order: 1
 ---
 
 This page contains quality metrics for AGORA. Developers should check this to make sure
