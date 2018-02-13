@@ -9,7 +9,7 @@ order: 1
 This page contains quality metrics for AGORA. Developers should check this to make sure
 that their code complies with the defined standards and that the service is clean and fast.
 
-### Coding Standards
+### Code Quality
 To test whether the code complies with coding standards, you may use linting tools for each
 repository. The procedure for each of the three repositories is outlined below:
 <ul>
@@ -18,10 +18,12 @@ repository. The procedure for each of the three repositories is outlined below:
 <li><a target="_blank" href="https://github.com/AuthEceSoftEng/agora-web-applicationr">AGORA Web Application</a>: Download and install <a target="_blank" href="https://eslint.org/">ESLint</a> and issue the command `eslint js` in the root of the repo,</li>
 </ul>
 
-An indicative run of the above tools shows that the AGORA AST Parser does not have any issues, while the AGORA Web Applicationand 
+An indicative run of the above tools shows that the AGORA AST Parser does not have any issues, while the AGORA Web Application and 
 the AGORA Elasticsearch Client are also of high linting quality, with the latter achieving linting score 8.85/10.
 
-### Response Time
+### Service Performance
+
+#### Response Time
 To test the response time of the service, one can measure how much does it take to complete a query.
 As the main point of assessment is the performance of the index, the measurement is performed using
 API queries (the ones available at <a target="_blank" href="http://agora.ee.auth.gr/api/">http://agora.ee.auth.gr/api/</a>).
@@ -68,7 +70,7 @@ Average time per query for query 5: 0.15 milliseconds
 Average time per query for all queries: 0.19 milliseconds
 ```
 
-### Indexing Time
+#### Indexing Time
 Measuring the indexing time requires instrumenting the
 <a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client/blob/master/dbmanager.py#L90">add_project method of dbmanager</a> and the <a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client/blob/master/dbmanager.py#L90">add_projects method of dbmanager</a>.
 The new add_project method should be the following:
@@ -100,7 +102,7 @@ def add_project(self, project_address):
 		create_times.append(time.time() - time_start)
 	sys.stdout.write(' Done!\n')
 	avg_create_time = sum(create_times) / len(create_times)
-	sys.stdout.write("Average indexing time per file for project %s: %.2f milliseconds\n" %(project_id, avg_create_time))
+	sys.stdout.write("Average indexing time per file for project %s: %.3f milliseconds\n" %(project_id, avg_create_time))
 	return avg_create_time
 ```
 and the new add_projects method should be the following:
@@ -115,7 +117,7 @@ def add_projects(self, project_addresses):
 	for project_address in project_addresses:
 		avg_create_time = self.add_project(project_address)
 		total_time += avg_create_time
-	print("Average indexing time per file for all projects: %.2f milliseconds" %(total_time / len(project_addresses)))
+	print("Average indexing time per file for all projects: %.3f milliseconds" %(total_time / len(project_addresses)))
 ```
 Note that the indexing time is measured for creating a project.
 So, the projects should not be already created.
