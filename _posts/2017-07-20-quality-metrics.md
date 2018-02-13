@@ -13,9 +13,9 @@ that their code complies with the defined standards and that the service is clea
 To test whether the code complies with coding standards, you may use linting tools for each
 repository. The procedure for each of the three repositories is outlined below:
 <ul>
-<li><a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client">AGORA Elasticsearch Client</a>: Download and install <a target="_blank" href="https://www.pylint.org/">Pylint</a> and issue the command `pylint main.py dbmanager.py libs` in the root of the repo,</li>
-<li><a target="_blank" href="https://github.com/AuthEceSoftEng/agora-ast-parser">AGORA AST Parser</a>: Download and install <a target="_blank" href="https://pmd.github.io/">PMD</a> and issue the command `pmd -d src -R java-basic.xml` in the root of the repo,</li>
-<li><a target="_blank" href="https://github.com/AuthEceSoftEng/agora-web-applicationr">AGORA Web Application</a>: Download and install <a target="_blank" href="https://eslint.org/">ESLint</a> and issue the command `eslint js` in the root of the repo,</li>
+<li><a target="_blank" href="https://github.com/AuthEceSoftEng/agora-elasticsearch-client">AGORA Elasticsearch Client</a>: Download and install <a target="_blank" href="https://www.pylint.org/">Pylint</a> and issue the command `pylint main.py dbmanager.py libs` in the root of the repo</li>
+<li><a target="_blank" href="https://github.com/AuthEceSoftEng/agora-ast-parser">AGORA AST Parser</a>: Download and install <a target="_blank" href="https://pmd.github.io/">PMD</a> and issue the command `pmd -d src -R java-basic.xml` in the root of the repo</li>
+<li><a target="_blank" href="https://github.com/AuthEceSoftEng/agora-web-applicationr">AGORA Web Application</a>: Download and install <a target="_blank" href="https://eslint.org/">ESLint</a> and issue the command `eslint js` in the root of the repo</li>
 </ul>
 
 An indicative run of the above tools shows that the AGORA AST Parser does not have any issues, while the AGORA Web Application and 
